@@ -1,0 +1,27 @@
+
+    "token": "",
+    "prefix": "i!",
+    "ksoft_service": "Bearer",
+    "owners": [
+        "533681290856103966",
+        "370506027767955466"
+    ],
+    "mysql": {
+        "host": "localhost",
+        "user": "nefelit",
+        "password": "",
+        "database": "illyasviel",
+        "charset": "utf8mb4",
+        "insecureAuth": true
+    },
+    "web": {
+        "cookie_token": "uwu",
+        "client_secret": "",
+        "redirect": "https://aspire.su/oauth2",
+        "allowed": [
+            "627926227935690780",
+            "621945913518325760",
+            "651154101551235112",
+            "549275699354271765"
+        ]
+    
