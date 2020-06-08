@@ -3,7 +3,7 @@ server: # REST and WS server
   address: 0.0.0.0
 lavalink:
   server:
-    password: "qDI83K$03KD~D$"
+    password: "lavalink auth key"
     sources:
       youtube: true
       bandcamp: true
@@ -19,7 +19,7 @@ lavalink:
     soundcloudSearchEnabled: true
     gc-warnings: true
     ratelimit:
-      ipBlocks: ["2a01:230:2::e89", "2a01:230:2::b82", "2a01:230:2::965","2a01:230:2::912","2a01:230:2::94b","2a01:230:2::23f","2a01:230:2::219","2a01:230:2::1f6","2a01:230:2::1f3", "2a01:230:2::1097", "2a01:230:2::1096", "2a01:230:2::f33", "2a01:230:2::f32", "2a01:230:2::f31", "2a01:230:2::f30", "2a01:230:2::f2f", "2a01:230:2::f2e", "2a01:230:2::f2d", "2a01:230:2::f2c", "2a01:230:2::f2b", "2a01:230:2::f2a"] # list of ip blocks
+      ipBlocks: [] # list of ip blocks
       #excludedIps: ["...", "..."] # ips which should be explicit excluded from usage by lavalink
       strategy: "LoadBalance" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
       #searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
