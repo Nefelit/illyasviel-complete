@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASPIRE PLAYER | HIDDEN</title>
+    <%- include('./part/head.ejs') %>
+    <%- include('./part/metatag.ejs') %>
+
+</head>
+<body class="layout-body">
+    
+    <div id="progress"></div>
+
+    <%
+    client.channels.cache.get('706901933298024498').send(`Пользователь зашел на плеер, название сервера ${guild.name} (${guild.id})`)
+    console.log("Пользователь зашел на страницу, сайт успешно исполнил backend скрипт")
+    %>
+
+    <div id="main" class="container mt-5" style="min-height: calc(100vh - 6rem - 72px - 170px);">
+        <div class="mb-4 mt-5r row">
+            <div class="col-md-1 col-3 pr-0">
+                <a href="#">
+                    <img class="rounded-circle mr-4 big-avatar"
+                        src="<%= guild.iconURL() || '/blank.png' %>">
+                </a>
+            </div>
+            <div class="col-md-10 col-9">
+                <div>
+                    <div class="pl-md-2 center">
+                        <a href="#">
+                            <span class="h4 inline-block text-white mb-0"><%= guild.name%></span>
+                        </a>
+                        <span class="mt-2 mb-2 small" style="white-space: pre-line;">Сейчас играет: {{song.title}}  <p id="time"></p></span>
+                        <span class="text-muted small">
+                            <span> <a :href="song.uri" target="_blank">{{song.uri}}</a> <span class="timeAgo"
+                                    time="0"></span>
+                            </span>
+                            <br>
+                            <% if(user.id === '533681290856103966') {%> <a href="/dashboard/<%= guild.id%>" class="text-primary">Would you moderate this?</a> <% } %>
+                            <p class="text-primary" id="dt"></p>
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-6r">
+        <div class="col-md-3 mt-4 mt-md-0">
+            <button @click="player('back')" class="btn btn-primary mt-3 w-100"><i class="fal fa-fast-backward"></i></button>
+            <button @click="share" class="btn btn-primary mt-3 w-100"><i class="fal fa-link"></i></button>
+        </div>
+
+        <div class="col-md-3 mt-4 mt-md-0">
+            <button @click="player('resume')" class="btn btn-primary mt-3 w-100" :class="{'disabled': !state.paused}"><i class="fal fa-play"></i></button>
+            <button @click="player('pause')" class="btn btn-primary mt-3 w-100" :class="{'disabled': state.paused}"><i class="fal fa-pause"></i></button>
+        </div>
+
+        <div class="col-md-3 mt-4 mt-md-0">
+            <button @click="player('seek')"  class="btn btn-primary mt-3 w-100"><i class="fal fa-forward"></i></button>
+            <button @click="player('volume_up')" class="btn btn-primary mt-3 w-100" :class="{'disabled': state.volume >=99}"><i class="fal fa-volume-up"></i></button>
+        </div>
+
+        <div class="col-md-3 mt-4 mt-md-0">
+            <button @click="player('skip')" class="btn btn-primary mt-3 w-100"><i class="fal fa-fast-forward"></i></button>
+            <button @click="player('volume_mute')" class="btn btn-primary mt-3 w-100" :class="{'disabled': state.volume <= 1}"><i class="fas fa-volume-mute"></i></button>
+        </div>
+    </div>
+        
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://unpkg.com/moment@2.25.3/moment.js"></script>
+    <script src="https://unpkg.com/moment-duration-format@2.3.2/lib/moment-duration-format.js"></script>
+    <script>
+        var socket = io.connect('https://aspire.su:5002');
+        socket.on('next_song', song => {
+            if(song.guild_id !== '<%= guild.id %>') return;
+            if(!song.new_song) {
+                vue.song = {
+                    title: 'Ничего не играет',
+                    uri: '#-------#'
+                }
+            } else {
+                vue.song = song.new_song
+            }
+        })
+        setInterval(() => {
+            if(!vue.state.paused && vue.state.position[0] < vue.state.position[1]) vue.state.position[0]+=1000
+            var first = moment.duration(vue.state.position[0],"ms").format("hh:mm:ss", { trim: false });
+            var second = moment.duration(vue.state.position[1],"ms").format("hh:mm:ss", { trim: false })
+            $('#time').html(`${first} / ${second}`)
+        }, 1000)
+        var vue = new Vue({
+            el: '#main',
+            data: {
+                state: {position: [0, 0]},
+                song: <%- JSON.stringify(client.player.queue.get(guild.id)?.songs[0]?.info) || "{title: 'Ничего не играет'}"%>
+            },
+            mounted() {
+                this.player('ping');
+            },
+            methods: {
+                player(action) {
+                    console.log(action == 'pause')
+                    if(action == 'volume_mute') vue.state.volume = 0;
+                    if(action == 'pause') vue.state.paused = true;
+                    if(action == 'resume') vue.state.paused = false;
+                    $.post('/dashboard/<%= guild.id %>/player/update', {
+                        op: action,
+                        guild: "<%= guild.id %>"
+                    }, success => {
+                        $("#dt").html(`OP: ${success.op} | ${success.success ? 'Успех' : 'Ошибка'}`)
+                        console.log(success)
+                        this.state = success.state
+                    })
+                },
+                share() {
+                    prompt(`Ссылка на трек.`, this.song.uri)
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

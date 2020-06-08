@@ -1,0 +1,47 @@
+server: # REST and WS server
+  port: 2333
+  address: 0.0.0.0
+lavalink:
+  server:
+    password: "qDI83K$03KD~D$"
+    sources:
+      youtube: true
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      mixer: true
+      http: true
+      local: false
+    bufferDurationMs: 400
+    youtubePlaylistLoadLimit: 6 # Number of pages at 100 each
+    youtubeSearchEnabled: true
+    soundcloudSearchEnabled: true
+    gc-warnings: true
+    ratelimit:
+      ipBlocks: ["2a01:230:2::e89", "2a01:230:2::b82", "2a01:230:2::965","2a01:230:2::912","2a01:230:2::94b","2a01:230:2::23f","2a01:230:2::219","2a01:230:2::1f6","2a01:230:2::1f3", "2a01:230:2::1097", "2a01:230:2::1096", "2a01:230:2::f33", "2a01:230:2::f32", "2a01:230:2::f31", "2a01:230:2::f30", "2a01:230:2::f2f", "2a01:230:2::f2e", "2a01:230:2::f2d", "2a01:230:2::f2c", "2a01:230:2::f2b", "2a01:230:2::f2a"] # list of ip blocks
+      #excludedIps: ["...", "..."] # ips which should be explicit excluded from usage by lavalink
+      strategy: "LoadBalance" # RotateOnBan | LoadBalance | NanoSwitch | RotatingNanoSwitch
+      #searchTriggersFail: true # Whether a search 429 should trigger marking the ip as failing
+      retryLimit: -1 # -1 = use default lavaplayer value | 0 = infinity | >0 = retry will happen this numbers times
+
+metrics:
+  prometheus:
+    enabled: false
+    endpoint: /metrics
+
+sentry:
+  dsn: ""
+#  tags:
+#    some_key: some_value
+#    another_key: another_value
+
+logging:
+  file:
+    max-history: 30
+    max-size: 1GB
+  path: ./logs/
+ 
+  level:
+    root: INFO
+    lavalink: INFO

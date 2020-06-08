@@ -1,0 +1,26 @@
+<div class="card-demo" id="btn-invite">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title ">
+                <%= user ? user.username + ',': ''%> Добро пожаловать на главную страницу ASSU Panel</h4>
+            <h6 class="card-subtitle ">
+                <%= user ? 'Видите ту точку, что мигает? Это ваш список серверов!' : 'Вы тут впервые? Попробуйте авторизоваться через дискорд, вы получите полный доступ к функциям нашего бота ' + client.user.tag%>
+            </h6>
+
+            <div class="actions">
+                <a href="#" class="actions__item "><i class="zwicon-plus"></i></a>
+                <a href="#" class="actions__item "><i class="zwicon-loop"></i></a>
+            </div>
+
+            <p>Данная панель отображает наши муз сервера, боты подключенные к ним - наши партнеры или сами мы.
+                <br> Используя кнопки выше сбоку, вы можете синхронизировать статистику или задать ей параметры, удачи!
+            </p>
+            <button type="button" class="btn btn-theme btn-block" style="background-color: #09b6a7; transition: 2s;" onclick="$('#redirectText').show(500); setTimeout(() => {window.location = 'https://discordapp.com/api/oauth2/authorize?client_id=<%= client.user.id %>&permissions=388289&redirect_uri=https%3A%2F%2Faspire.su%2Foauth2&response_type=code&scope=bot%20identify%20email'}, 1000)">ПРИГЛАСИТЬ & АВТОРИЗОВАТЬСЯ</button>
+            <br>
+            <h5 style="color: #f03862; display: none;" id="redirectText">Загрузка IFRAME запрещена, потребуется перенаправить вас..</h5>
+
+
+
+        </div>
+    </div>
+</div>

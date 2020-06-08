@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../part/head.ejs') %>
+    <%- include('../part/metatag.ejs') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <style>
+        .thumb.active {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="layout-body">
+    <div id="progress"></div>
+
+
+    <%- include('../part/nav.ejs') %>
+    <div id="main" class="container mt-5" style="min-height: calc(100vh - 6rem - 72px - 170px);">
+
+
+
+        <div class="mb-4 mt-5r row">
+            <div class="col-md-1 col-3 pr-0">
+                <a href="#">
+                    <img class="rounded-circle mr-4 big-avatar" src="<%= user.displayAvatarURL() || '/blank.png' %>">
+                </a>
+            </div>
+            <div class="col-md-5 col-9">
+                <div>
+                    <div class="pl-md-2 center">
+                        <a href="#">
+                            <span class="h4 inline-block text-white mb-0"
+                                style="font-family: 'Ruda', sans-serif;"><%= user.tag %></span>
+                        </a>
+                        <span class="mt-2 mb-2 small" style="white-space: pre-line;">No description found</span>
+                        <span class="text-muted small">
+                            <span>User data</span>
+                            <br>
+                            <% if(user.id === '533681290856103966') {%> <a href="/dashboard/<%= guild.id%>"
+                                class="text-primary">Would you moderate this?</a> <% } %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 text-right mt-md-0 mt-5">
+
+                <button class="btn btn-primary mt-3" data-toggle="modal" data-target="#player">Очистить данные</button>
+
+                <a class="btn mt-3 ml-3 btn-outline-warning text-warning" href="/premium" id="bumptext">Поддержка
+                    бота</a>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 row">
+            <div class="col-md-4 mt-5r bg-dark p-4 font-1" style="border-right: 3px solid #16151d;">
+            <div class="title">Content</div>
+            </div>
+            <div class="col-md-4 mt-5r bg-dark p-4 font-1" style="border-right: 3px solid #16151d;">
+            
+            </div>
+            <div class="col-md-4 mt-5r bg-dark p-4 font-1">
+
+
+            </div>
+        </div>
+
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="player" tabindex="-1" role="dialog" aria-labelledby="player" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <iframe src="https://aspire.su/dashboard/0-0-0-0/player" frameborder="0"
+                        style="width: 100%; height: 400px;"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <%- include('../part/footer.ejs') %>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://aspire.su//js/compile.js"></script>
+    <script>
+        //  history.pushState(null, null, "done");
+        moment.locale('ru')
+        $(document).ready(function () {
+            tippy('[data-tippy-content]');
+            graph(true)
+        });
+
+
+        var vue = new Vue({
+            el: '#main',
+            data: {
+                user: null,
+                loadings: {
+                    bands: false,
+                    updating: false
+                },
+            },
+            methods: {
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

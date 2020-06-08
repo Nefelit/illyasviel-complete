@@ -1,0 +1,604 @@
+[10:21:45] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:21:45] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:21:45] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:21:45] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:21:45] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:21:48] [main/INFO] [MagmaHandler]: Send system: nas
+[10:21:48] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:21:48] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:21:49] [main/INFO] [Andesite]: Enabled default sources: [youtube]
+[10:21:49] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:21:50] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: 8d:76:fd:5e:75:68:4d:54
+[10:21:50] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:21:50] [main/INFO] [Andesite]: Handlers: REST enabled, WebSocket enabled, Singyeong disabled
+[10:21:50] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:21:50] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:21:50] [main/INFO] [Andesite]: Timescale available
+[10:22:22] [vert.x-eventloop-thread-1/INFO] [WebSocketHandler]: New lavalink connection from 127.0.0.1:41044 with id 1
+[10:22:47] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Handling voice server update for user 678121374887444480 and payload {"op":"voiceUpdate","guildId":"673925010833801262","sessionId":"687488a68efc33b0f65410296f3a4b37","event":{"endpoint":"eu-central751.discord.media:80","guild_id":"673925010833801262","token":"270242bae07d519d"}}
+[10:22:47] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:22:47] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAApAIAQNCd0YPRgNC80LjQvdGB0LrQuNC5IC0g0JLQsNC70LjQvCAocmlnaHQgdmVyc2lvbuKZgikgR2FjaGkgUmVtaXgACnplcm9kb3ZpY2gAAAAAAALK2AALUV9uM244MTlkR0kAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RX24zbjgxOWRHSQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:22:48] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of Q_n3n819dGI
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:22:57] [parallel-2/ERROR] [AudioWebSocket]: Exception in websocket connection, closing
+java.nio.channels.UnresolvedAddressException: null
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:130)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+	at org.xnio.nio.WorkerThread.openTcpStreamConnection(WorkerThread.java:266)
+	at org.xnio.XnioIoThread.openStreamConnection(XnioIoThread.java:256)
+	at org.xnio.XnioWorker.openStreamConnection(XnioWorker.java:346)
+	at io.undertow.protocols.ssl.UndertowXnioSsl.openSslConnection(UndertowXnioSsl.java:188)
+	at org.xnio.ssl.XnioSsl.openSslConnection(XnioSsl.java:169)
+	at org.xnio.http.HttpUpgrade$HttpUpgradeState.doUpgrade(HttpUpgrade.java:256)
+	at org.xnio.http.HttpUpgrade$HttpUpgradeState.access$100(HttpUpgrade.java:165)
+	at org.xnio.http.HttpUpgrade.performUpgrade(HttpUpgrade.java:95)
+	at io.undertow.websockets.client.WebSocketClient$ConnectionBuilder.connectImpl(WebSocketClient.java:321)
+	at io.undertow.websockets.client.WebSocketClient$ConnectionBuilder.connect(WebSocketClient.java:211)
+	at space.npstr.magma.connections.hax.ClosingUndertowWebSocketClient.lambda$executeInternalPatched$0(ClosingUndertowWebSocketClient.java:68)
+	at reactor.core.publisher.MonoCallable.call(MonoCallable.java:91)
+	at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:160)
+	at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+	at reactor.core.publisher.MonoLogFuseable.subscribe(MonoLogFuseable.java:53)
+	at reactor.core.publisher.MonoPeekFuseable.subscribe(MonoPeekFuseable.java:74)
+	at reactor.core.publisher.MonoPublishOn.subscribe(MonoPublishOn.java:45)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:3589)
+	at reactor.core.publisher.Mono.subscribeWith(Mono.java:3695)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:3474)
+	at space.npstr.magma.connections.AudioWebSocket.connect(AudioWebSocket.java:301)
+	at space.npstr.magma.connections.AudioWebSocket.<init>(AudioWebSocket.java:108)
+	at space.npstr.magma.AudioStack.handleConnectWebSocket(AudioStack.java:138)
+	at space.npstr.magma.AudioStack.hookOnNext(AudioStack.java:108)
+	at space.npstr.magma.AudioStack.hookOnNext(AudioStack.java:46)
+	at reactor.core.publisher.BaseSubscriber.onNext(BaseSubscriber.java:158)
+	at reactor.core.publisher.FluxPublishOn$PublishOnSubscriber.runAsync(FluxPublishOn.java:398)
+	at reactor.core.publisher.FluxPublishOn$PublishOnSubscriber.run(FluxPublishOn.java:484)
+	at reactor.core.scheduler.WorkerTask.call(WorkerTask.java:84)
+	at reactor.core.scheduler.WorkerTask.call(WorkerTask.java:37)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+[10:22:57] [parallel-2/ERROR] [Schedulers]: Scheduler worker in group main failed with an uncaught exception
+reactor.core.Exceptions$ErrorCallbackNotImplemented: java.lang.NullPointerException
+Caused by: java.lang.NullPointerException: null
+	at space.npstr.magma.connections.AudioWebSocket.closeEverything(AudioWebSocket.java:317)
+	at space.npstr.magma.connections.AudioWebSocket.lambda$connect$3(AudioWebSocket.java:298)
+	at reactor.core.publisher.FluxPeekFuseable$PeekFuseableSubscriber.onError(FluxPeekFuseable.java:219)
+	at reactor.core.publisher.FluxPeekFuseable$PeekFuseableSubscriber.onError(FluxPeekFuseable.java:228)
+	at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:163)
+	at reactor.core.publisher.MonoIgnoreThen.subscribe(MonoIgnoreThen.java:56)
+	at reactor.core.publisher.MonoLogFuseable.subscribe(MonoLogFuseable.java:53)
+	at reactor.core.publisher.MonoPeekFuseable.subscribe(MonoPeekFuseable.java:74)
+	at reactor.core.publisher.MonoPublishOn.subscribe(MonoPublishOn.java:45)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:3589)
+	at reactor.core.publisher.Mono.subscribeWith(Mono.java:3695)
+	at reactor.core.publisher.Mono.subscribe(Mono.java:3474)
+	at space.npstr.magma.connections.AudioWebSocket.connect(AudioWebSocket.java:301)
+	at space.npstr.magma.connections.AudioWebSocket.<init>(AudioWebSocket.java:108)
+	at space.npstr.magma.AudioStack.handleConnectWebSocket(AudioStack.java:138)
+	at space.npstr.magma.AudioStack.hookOnNext(AudioStack.java:108)
+	at space.npstr.magma.AudioStack.hookOnNext(AudioStack.java:46)
+	at reactor.core.publisher.BaseSubscriber.onNext(BaseSubscriber.java:158)
+	at reactor.core.publisher.FluxPublishOn$PublishOnSubscriber.runAsync(FluxPublishOn.java:398)
+	at reactor.core.publisher.FluxPublishOn$PublishOnSubscriber.run(FluxPublishOn.java:484)
+	at reactor.core.scheduler.WorkerTask.call(WorkerTask.java:84)
+	at reactor.core.scheduler.WorkerTask.call(WorkerTask.java:37)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+	Suppressed: java.nio.channels.UnresolvedAddressException: null
+		at java.base/sun.nio.ch.Net.checkAddress(Net.java:130)
+		at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:675)
+		at org.xnio.nio.WorkerThread.openTcpStreamConnection(WorkerThread.java:266)
+		at org.xnio.XnioIoThread.openStreamConnection(XnioIoThread.java:256)
+		at org.xnio.XnioWorker.openStreamConnection(XnioWorker.java:346)
+		at io.undertow.protocols.ssl.UndertowXnioSsl.openSslConnection(UndertowXnioSsl.java:188)
+		at org.xnio.ssl.XnioSsl.openSslConnection(XnioSsl.java:169)
+		at org.xnio.http.HttpUpgrade$HttpUpgradeState.doUpgrade(HttpUpgrade.java:256)
+		at org.xnio.http.HttpUpgrade$HttpUpgradeState.access$100(HttpUpgrade.java:165)
+		at org.xnio.http.HttpUpgrade.performUpgrade(HttpUpgrade.java:95)
+		at io.undertow.websockets.client.WebSocketClient$ConnectionBuilder.connectImpl(WebSocketClient.java:321)
+		at io.undertow.websockets.client.WebSocketClient$ConnectionBuilder.connect(WebSocketClient.java:211)
+		at space.npstr.magma.connections.hax.ClosingUndertowWebSocketClient.lambda$executeInternalPatched$0(ClosingUndertowWebSocketClient.java:68)
+		at reactor.core.publisher.MonoCallable.call(MonoCallable.java:91)
+		at reactor.core.publisher.MonoIgnoreThen$ThenIgnoreMain.drain(MonoIgnoreThen.java:160)
+		... 22 common frames omitted
+[10:23:59] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:23:59] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:23:59] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:23:59] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:23:59] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:24:01] [main/INFO] [PluginManager]: Loading handler koe of type andesite.node.send.AudioHandler
+[10:24:01] [main/INFO] [PluginManager]: Attempting to find plugin class koe
+[10:24:14] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:24:14] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:24:14] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:24:14] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:24:15] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:24:16] [main/INFO] [MagmaHandler]: Send system: nas
+[10:24:17] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:24:17] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:24:17] [main/INFO] [Andesite]: Enabled default sources: [youtube]
+[10:24:17] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:24:18] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: ac:0e:94:1b:50:a2:82:6a
+[10:24:18] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:24:18] [main/INFO] [Andesite]: Handlers: REST enabled, WebSocket enabled, Singyeong disabled
+[10:24:18] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:24:18] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:24:18] [main/INFO] [Andesite]: Timescale available
+[10:24:22] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:24:22] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:24:22] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:24:22] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:24:22] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:24:24] [main/INFO] [MagmaHandler]: Send system: nas
+[10:24:24] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:24:24] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:24:24] [main/INFO] [Andesite]: Enabled default sources: [youtube]
+[10:24:24] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:24:25] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: c1:b6:35:16:70:bc:4b:49
+[10:24:25] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:24:25] [main/INFO] [Andesite]: Handlers: REST enabled, WebSocket enabled, Singyeong disabled
+[10:24:25] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:24:25] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:24:25] [main/INFO] [Andesite]: Timescale available
+[10:24:29] [vert.x-eventloop-thread-1/INFO] [WebSocketHandler]: New lavalink connection from 127.0.0.1:49962 with id 1
+[10:24:41] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Handling voice server update for user 678121374887444480 and payload {"op":"voiceUpdate","guildId":"673925010833801262","sessionId":"687488a68efc33b0f65410296f3a4b37","event":{"endpoint":"eu-central751.discord.media:80","guild_id":"673925010833801262","token":"e194d52326e214d8"}}
+[10:24:41] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:24:41] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAApAIAQNCd0YPRgNC80LjQvdGB0LrQuNC5IC0g0JLQsNC70LjQvCAocmlnaHQgdmVyc2lvbuKZgikgR2FjaGkgUmVtaXgACnplcm9kb3ZpY2gAAAAAAALK2AALUV9uM244MTlkR0kAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RX24zbjgxOWRHSQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:24:42] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of Q_n3n819dGI
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:24:43] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:24:43] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAApAIAQNCd0YPRgNC80LjQvdGB0LrQuNC5IC0g0JLQsNC70LjQvCAocmlnaHQgdmVyc2lvbuKZgikgR2FjaGkgUmVtaXgACnplcm9kb3ZpY2gAAAAAAALK2AALUV9uM244MTlkR0kAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RX24zbjgxOWRHSQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:24:44] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of Q_n3n819dGI
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:12] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:12] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAApAIAQNCd0YPRgNC80LjQvdGB0LrQuNC5IC0g0JLQsNC70LjQvCAocmlnaHQgdmVyc2lvbuKZgikgR2FjaGkgUmVtaXgACnplcm9kb3ZpY2gAAAAAAALK2AALUV9uM244MTlkR0kAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RX24zbjgxOWRHSQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:13] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of Q_n3n819dGI
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:25] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:25] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAgQIAIUdlb3hvciBAIFZpcnR1YWwgQXJjYWRpYSAyMDIwIE1JWAAGR2VveG9yAAAAAAAc4ogAC2FhcUd5Vm1SNWxNAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9YWFxR3lWbVI1bE0AB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:25] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:25] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAgQIAIUdlb3hvciBAIFZpcnR1YWwgQXJjYWRpYSAyMDIwIE1JWAAGR2VveG9yAAAAAAAc4ogAC2FhcUd5Vm1SNWxNAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9YWFxR3lWbVI1bE0AB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:26] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of aaqGyVmR5lM
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:26] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:26] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcAIAEEdlb3hvciAtIFZpcnR1YWwABkdlb3hvcgAAAAAABNJgAAtva2x6Vkg4RmZWUQABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PW9rbHpWSDhGZlZRAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:26] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:26] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAfAIAHEdlb3hvciAmIENhbm9uYmxhZGUgLSBTYWt1cmEABkdlb3hvcgAAAAAAA3LQAAt0NjZsdzY3V1NPQQABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PXQ2Nmx3NjdXU09BAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:27] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of oklzVH8FfVQ
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:27] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:27] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcQIAEUdlb3hvciAtIFR3aWxpZ2h0AAZHZW94b3IAAAAAAAKrmAALWUpnX2ZqaTNVa28AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ZSmdfZmppM1VrbwAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:27] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:27] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAdAIAFEdlb3hvciAtIEV1cGhvcmlhIElJAAZHZW94b3IAAAAAAAMY+AALZEJ5WGVVVE52MU0AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1kQnlYZVVUTnYxTQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:29] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of YJg_fji3Uko
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:29] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:29] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcQIAEUdlb3hvciAtIE1pZG5pZ2h0AAZHZW94b3IAAAAAAANACAALT1VHRUc1Tm96X0kAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1PVUdFRzVOb3pfSQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:30] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:30] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAbwIAD0dlb3hvciAtIFBpeGVscwAGR2VveG9yAAAAAAACvyAAC2FLTTdPcTA0QU5VAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9YUtNN09xMDRBTlUAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:30] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of OUGEG5Noz_I
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:30] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:30] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcgIAEkdlb3hvciAtIE5lb24gRXllcwAGR2VveG9yAAAAAAADawAAC0JxREg3R1RfUFRjAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9QnFESDdHVF9QVGMAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:30] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:30] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcAIAEEdlb3hvciAtIFZhbmlsbGEABkdlb3hvcgAAAAAAAxj4AAtZNURrQUwxLWtrRQABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PVk1RGtBTDEta2tFAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:31] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of BqDH7GT_PTc
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:31] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:31] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAgQIAIVBhbmRhIEV5ZXMgeCBHZW94b3IgLSBMdWNpZCBEcmVhbQAGR2VveG9yAAAAAAAE6dAAC2FNbnRiZEVpQ3I0AAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9YU1udGJkRWlDcjQAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:31] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:31] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAeAIAEUdlb3hvciAtIFN0YXJkdXN0AA1EdWJzdGVwR3V0dGVyAAAAAAAEKmgAC0EtckFiV3RyUEc0AAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9QS1yQWJXdHJQRzQAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:32] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of aMntbdEiCr4
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:32] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:32] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcQIAEUdlb3hvciAtIEV1cGhvcmlhAAZHZW94b3IAAAAAAALK2AALbUZuTzhDMmRlLUkAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1tRm5POEMyZGUtSQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:32] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:32] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAbQIADUdlb3hvciAtIE5hbmEABkdlb3hvcgAAAAAAA9hgAAtUc05jNjZ4c0YxbwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PVRzTmM2NnhzRjFvAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:33] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of mFnO8C2de-I
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:33] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:33] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAeQIAEkdlb3hvciAtIE1vb25saWdodAANRHVic3RlcEd1dHRlcgAAAAAABU9gAAsyY1d1X293OTlXawABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTJjV3Vfb3c5OVdrAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:33] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:33] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAfAIAHEdlb3hvciAmIENhbm9uYmxhZGUgLSBTYWt1cmEABkdlb3hvcgAAAAAAA3LQAAt0NjZsdzY3V1NPQQABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PXQ2Nmx3NjdXU09BAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:34] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of 2cWu_ow99Wk
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:34] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:34] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcQIAEUdlb3hvciAtIFR3aWxpZ2h0AAZHZW94b3IAAAAAAAKrmAALWUpnX2ZqaTNVa28AAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1ZSmdfZmppM1VrbwAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:34] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:34] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAiQIAHkdlb3hvciAtIFlvdSAmIEkgW05DUyBSZWxlYXNlXQARTm9Db3B5cmlnaHRTb3VuZHMAAAAAAALmMAALMWxjYzIxUlF4X0EAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0xbGNjMjFSUXhfQQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:35] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of YJg_fji3Uko
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:35] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:35] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcgIAC0dlb3hvciAtIElEAA1Tb25ncyAmIE11c2ljAAAAAAADU5AAC0ZsbUxSUkpWV09zAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9RmxtTFJSSlZXT3MAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:35] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:35] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAbgIADkdlb3hvciAtIFNoYWlpAAZHZW94b3IAAAAAAAQDWAALblJST1dKYThzZEEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1uUlJPV0phOHNkQQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:36] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of FlmLRRJVWOs
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:36] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:36] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAfgIAF0dlb3hvciAtIE9uZSBMaWZlIFNob3J0AA1EdWJzdGVwR3V0dGVyAAAAAAAC7gAACy1PMUdGSnF4N0VrAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9LU8xR0ZKcXg3RWsAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:36] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:36] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAdwIAEEdlb3hvciAtIFZpcnR1YWwADUR1YnN0ZXBHdXR0ZXIAAAAAAATxoAALdnlvVkFIWWFhb2MAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj12eW9WQUhZYWFvYwAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:37] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of -O1GFJqx7Ek
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAeAIAEUdlb3hvciAtIE1pZG5pZ2h0AA1EdWJzdGVwR3V0dGVyAAAAAAADU5AAC2tYZlpSdzFLV3FzAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9a1hmWlJ3MUtXcXMAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAcAIAEEdlb3hvciAtIFJlc3RhcnQABkdlb3hvcgAAAAAAA4JwAAs1TmhERmh6S05FQQABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTVOaERGaHpLTkVBAAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:38] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of kXfZRw1KWqs
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:38] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:38] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAjwIAL0dlb3hvciAtIE1vb25saWdodCAoT2ZmaWNpYWwgUGVyZm9ybWFuY2UgVmlkZW8pAAZHZW94b3IAAAAAAAVPYAALaFVzMC1ncUJ1bFEAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1oVXMwLWdxQnVsUQAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:38] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:38] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAjAIALEdlb3hvciAtIFRha2UgTWUgSG9tZSAoT2ZmaWNpYWwgTHlyaWMgVmlkZW8pAAZHZW94b3IAAAAAAAOhsAALYk4zT0tKX2xiSzAAAQAraHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1iTjNPS0pfbGJLMAAHeW91dHViZQAAAAAAAAAA","noReplace":true}
+[10:25:39] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of hUs0-gqBulQ
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:39] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:39] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAaQIACUFiYW5kb25lZAAGR2VveG9yAAAAAAADjigAC2Z4RzFtNHptU1U4AAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9ZnhHMW00em1TVTgAB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:25:39] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:25:39] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAdgIAD0dlb3hvciAtIFBpeGVscwANRHVic3RlcEd1dHRlcgAAAAAAAtaQAAs1dkVpT1lDY3M1dwABACtodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PTV2RWlPWUNjczV3AAd5b3V0dWJlAAAAAAAAAAA=","noReplace":true}
+[10:25:40] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of fxG1m4zmSU8
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:25:44] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Destroying player for user 678121374887444480 in guild 673925010833801262
+[10:26:27] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:26:27] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:26:27] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:26:27] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:26:27] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:26:28] [main/INFO] [MagmaHandler]: Send system: nas
+[10:26:29] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:26:29] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:26:29] [main/INFO] [Andesite]: Enabled default sources: [youtube, soundcloud]
+[10:26:29] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:26:30] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: dd:aa:1d:de:fb:0b:8b:2a
+[10:26:30] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:26:30] [main/INFO] [Andesite]: Handlers: REST enabled, WebSocket enabled, Singyeong disabled
+[10:26:30] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:26:30] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:26:30] [main/INFO] [Andesite]: Timescale available
+[10:26:38] [vert.x-eventloop-thread-1/INFO] [WebSocketHandler]: New lavalink connection from 127.0.0.1:47548 with id 1
+[10:26:47] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Handling voice server update for user 678121374887444480 and payload {"op":"voiceUpdate","guildId":"673925010833801262","sessionId":"687488a68efc33b0f65410296f3a4b37","event":{"endpoint":"eu-central751.discord.media:80","guild_id":"673925010833801262","token":"68453d95787c1eb7"}}
+[10:26:47] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:26:47] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAgQIAIUdlb3hvciBAIFZpcnR1YWwgQXJjYWRpYSAyMDIwIE1JWAAGR2VveG9yAAAAAAAc4ogAC2FhcUd5Vm1SNWxNAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9YWFxR3lWbVI1bE0AB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:26:48] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of aaqGyVmR5lM
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:27:35] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:27:35] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:27:35] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:27:35] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:27:35] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:27:36] [main/INFO] [MagmaHandler]: Send system: nas
+[10:27:36] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:27:36] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:27:37] [main/INFO] [Andesite]: Enabled default sources: [youtube, beam, bandcamp, twitch, vimeo, soundcloud]
+[10:27:37] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:27:37] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: 8e:7e:f8:e4:8c:ad:cd:e3
+[10:27:37] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:27:37] [main/INFO] [Andesite]: Handlers: REST enabled, WebSocket enabled, Singyeong disabled
+[10:27:37] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:27:37] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:27:37] [main/INFO] [Andesite]: Timescale available
+[10:28:06] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:28:06] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:28:06] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:28:06] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:28:07] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:28:08] [main/INFO] [MagmaHandler]: Send system: nas
+[10:28:08] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:28:08] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:28:09] [main/INFO] [Andesite]: Enabled default sources: [youtube]
+[10:28:09] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:28:09] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: 43:a4:e5:ac:07:c2:a8:96
+[10:28:09] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:28:09] [main/INFO] [Andesite]: Handlers: REST disabled, WebSocket enabled, Singyeong disabled
+[10:28:09] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:28:09] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:28:09] [main/INFO] [Andesite]: Timescale available
+[10:28:22] [vert.x-eventloop-thread-1/INFO] [WebSocketHandler]: New lavalink connection from 127.0.0.1:48252 with id 1
+[10:29:25] [main/INFO] [NativeLibLoader]: Native library detector: loading with parts []
+[10:29:25] [main/INFO] [NativeLibLoader]: Native library detector: successfully loaded.
+[10:29:25] [main/INFO] [Andesite]: System info: X86CPU{features = 2818572289, microarchitecture = INTEL_WSM, family = 6, model = 44, stepping = 2, vendor = GenuineIntel, brandString = Intel(R) Xeon(R) CPU           E5645  @ 2.40GHz}
+[10:29:25] [main/INFO] [Andesite]: Starting andesite version 0.18.9, commit 65ada0b239468dc09346e5c3552d8340c7645339
+[10:29:25] [main/INFO] [ConfigUtil]: Loading config from /root/nefelit/music/Andeiste/application.conf
+[10:29:26] [main/INFO] [MagmaHandler]: Send system: nas
+[10:29:26] [main/INFO] [xnio]: XNIO version 3.3.8.Final
+[10:29:26] [main/INFO] [nio]: XNIO NIO Implementation Version 3.3.8.Final
+[10:29:27] [main/INFO] [Andesite]: Enabled default sources: [youtube]
+[10:29:27] [main/INFO] [RestHandler]: Starting HTTP server on port 0.0.0.0:5000
+[10:29:27] [main/WARN] [MacAddressUtil]: Failed to find a usable hardware address from the network interfaces; using random bytes: dd:14:61:95:12:7c:d3:9e
+[10:29:27] [vert.x-eventloop-thread-1/INFO] [RestHandler]: HTTP server started successfully
+[10:29:27] [main/INFO] [Andesite]: Handlers: REST enabled, WebSocket enabled, Singyeong disabled
+[10:29:27] [main/INFO] [NativeLibLoader]: Native library timescale: loading with parts [Part{feature=X86.AVX2, part=avx2}]
+[10:29:27] [main/INFO] [NativeLibLoader]: Native library timescale: successfully loaded.
+[10:29:27] [main/INFO] [Andesite]: Timescale available
+[10:29:31] [vert.x-eventloop-thread-1/INFO] [WebSocketHandler]: New lavalink connection from 127.0.0.1:37336 with id 1
+[10:29:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Handling voice server update for user 678121374887444480 and payload {"op":"voiceUpdate","guildId":"673925010833801262","sessionId":"687488a68efc33b0f65410296f3a4b37","event":{"endpoint":"eu-central751.discord.media:80","guild_id":"673925010833801262","token":"f234605592748fc2"}}
+[10:29:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Subscribing for events for user 678121374887444480 in guild 673925010833801262
+[10:29:37] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Playing track for user 678121374887444480 in guild 673925010833801262 with payload {"op":"play","guildId":"673925010833801262","track":"QAAAgQIAIUdlb3hvciBAIFZpcnR1YWwgQXJjYWRpYSAyMDIwIE1JWAAGR2VveG9yAAAAAAAc4ogAC2FhcUd5Vm1SNWxNAAEAK2h0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9YWFxR3lWbVI1bE0AB3lvdXR1YmUAAAAAAAAAAA==","noReplace":true}
+[10:29:38] [lava-daemon-pool-playback-1-thread-1/ERROR] [LocalAudioTrackExecutor]: Error in playback of aaqGyVmR5lM
+com.sedmelluq.discord.lavaplayer.tools.FriendlyException: Something broke when playing the track.
+	at com.sedmelluq.discord.lavaplayer.tools.ExceptionTools.wrapUnfriendlyExceptions(ExceptionTools.java:43)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:102)
+	at com.sedmelluq.discord.lavaplayer.player.DefaultAudioPlayerManager.lambda$executeTrack$1(DefaultAudioPlayerManager.java:349)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.lang.NullPointerException: null
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.decodeUrlEncodedItems(YoutubeAudioTrack.java:321)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormatsFromStreamingData(YoutubeAudioTrack.java:210)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadTrackFormats(YoutubeAudioTrack.java:135)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.loadBestFormatWithUrl(YoutubeAudioTrack.java:98)
+	at com.sedmelluq.discord.lavaplayer.source.youtube.YoutubeAudioTrack.process(YoutubeAudioTrack.java:62)
+	at com.sedmelluq.discord.lavaplayer.track.playback.LocalAudioTrackExecutor.execute(LocalAudioTrackExecutor.java:90)
+	... 4 common frames omitted
+[10:30:39] [vert.x-eventloop-thread-1/INFO] [RequestHandler]: Destroying player for user 678121374887444480 in guild 673925010833801262

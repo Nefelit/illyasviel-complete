@@ -1,0 +1,37 @@
+<nav class="nav-wrapper">
+    <div class="pl-2 pr-0 pt-2">
+        <div class="container navbar navbar-expand-lg navbar-db" id="nav">
+            <a class="navbar-brand text-primary" href="/">Illyasviel</a>
+            <button aria-controls="mobilenav" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler vertical-children" data-target="#mobilenav" data-toggle="collapse"
+                type="button"><span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span></button>
+            <div class="collapse navbar-collapse no-transition" id="mobilenav">
+                <ul class="navbar-nav mr-auto mt-lg-0">
+                    <li class="nav-item mr-md-3">
+                        <a class="nav-a btn btn-a btn-xm" href="/commands">Команды</a>
+                    </li>
+
+                </ul>
+                <div class="my-2 my-lg-0">
+                    <% if(!user) {%>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="guest_panel">
+                        <li class="nav-item  mr-md-3">
+                            <a class="nav-a btn btn-xm btn-outline-secondary" href="/oauth2">Login</a>
+                        </li>
+                    </ul>
+                    <% } else {%>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="login_panel">
+                        <li class="nav-item  mr-md-3">
+                            <a class="nav-a btn btn-a btn-xm " href="/">Dashboard</a>
+                        </li>
+                        <li class="nav-item  mr-md-3">
+                            <a class="nav-a btn btn-xm btn-outline-secondary" href="/logout"
+                                onclick="">Logout</a>
+                        </li>
+                    </ul>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

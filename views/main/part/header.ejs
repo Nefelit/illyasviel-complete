@@ -1,0 +1,53 @@
+<div class="page-loader">
+    <div class="loader">
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+    </div>
+</div>
+
+<header class="header">
+    <div class="header__main">
+        <i class="navigation-toggle zwicon-hamburger-menu d-xl-none"></i>
+
+        <div class="logo d-none d-md-block">
+            <a href="#">
+                <img src="https://media.discordapp.net/attachments/548899664544399389/665849330359468033/5.png " alt=" "
+                    height="100 ">
+            </a>
+        </div>
+
+        <%- include('../widgets/search.ejs') %>
+
+        <ul class="top-nav ">
+            <li class="d-xl-none ">
+                <a class="top-nav__search " href=" "><i class="zwicon-search"></i></a>
+            </li>
+
+            <li class="d-xl-none ">
+                <a data-notification="#notifications-alerts" href="#"><i class="zwicon-grid"></i></a>
+            </li>
+
+        </ul>
+        <div class="user dropdown ">
+            <a class="d-block" href="/oauth2" style="font-size: 48px">
+                <% if(!user) { %>
+                <i class="zwicon-sign-in" style="color: white"></i>
+                <% } else { %>
+                <img class="user__img " src="<%= user.displayAvatarURL() %>" alt=" ">
+                <% } %>
+            </a>
+        </div>
+    </div>
+
+    <div class="toggles d-none d-xl-block ">
+        <a href="/g" data-notification="#notifications-messages " class="toggles__notify "><i
+                class="zwicon-server-stack"></i></a>
+        <a href="/u/report"><i class="zwicon-exclamation-mark"></i></a>
+        <a href="# " data-notification="#notifications-messages "><i class="zwicon-unlink"></i></a>
+    </div>
+
+</header>

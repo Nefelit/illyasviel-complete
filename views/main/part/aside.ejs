@@ -1,0 +1,155 @@
+<aside class="sidebar notifications">
+    <% if(!guilds || guilds.size < 1) {%>
+    <div class="sidebar__header">
+        <i class="zwicon-arrow-left sidebar__close"></i>
+        <h2>Сервера <small>0 серверов доступно</small></h2>
+
+        <div class="actions">
+            <a href="oauth2" class="actions__item"><i class="zwicon-plus"></i></a>
+        </div>
+
+
+    </div>
+    <% } else {%>
+    <div class="notifications__panel" id="notifications-messages" style="display: block !important;">
+        <div class="sidebar__header">
+            <i class="zwicon-arrow-left sidebar__close"></i>
+            <h2>Сервера <small><%= guilds.size%> серверов доступно</small></h2>
+
+            <div class="actions">
+                <a href="oauth2" class="actions__item"><i class="zwicon-plus"></i></a>
+            </div>
+        </div>
+
+        <div class="notifications__body">
+            <div
+                class="scrollbar os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-transition os-host-overflow os-host-overflow-y">
+                <div class="os-resize-observer-host">
+                    <div class="os-resize-observer observed" style="left: 0px; right: auto;"></div>
+                </div>
+                <div class="os-size-auto-observer" style="height: calc(100% + 1px); float: left;">
+                    <div class="os-resize-observer observed"></div>
+                </div>
+                <div class="os-content-glue" style="margin: -21px 0px; width: 349px; height: 265px;"></div>
+                <div class="os-padding">
+                    <div class="os-viewport" style="right: -12px; overflow-y: scroll;">
+                        <div class="os-content" style="padding: 21px 0px; height: 100%; width: 100%;">
+                            <div class="listview listview--hover listview--truncate">
+                                <% guilds.forEach((guild,index) => { %>
+                                <% if(!out) {%> <router-link to="/<%= guild.id %>" %> <% } else { %> <a
+                                        href="<%=guild.id%>" <% } %> class="listview__item">
+                                        <img class="avatar-img"
+                                            src="<%= guild.iconURL() ? guild.iconURL() : client.user.defaultAvatarURL%>"
+                                            alt="">
+
+                                        <div class="listview__content">
+                                            <h4>
+                                                <%= guild.name %>
+                                            </h4>
+                                            <p>
+                                                <%= guild.memberCount%> Пользователей на сервере</p>
+                                        </div>
+                                        <% if(!out) {%>
+                                </router-link>
+                                <% } else { %>
+                                </a>
+                                <% } %>
+                                <%}) %>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden">
+                    <div class="os-scrollbar-track">
+                        <div class="os-scrollbar-handle" style="transform: translate(0px); width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-auto-hidden">
+                    <div class="os-scrollbar-track">
+                        <div class="os-scrollbar-handle" style="transform: translate(0px, 84px); height: 68.3805%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="os-scrollbar-corner"></div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</aside>
+
+<aside class="sidebar navigation" id="bdy">
+    <div
+        class="scrollbar os-host os-theme-light os-host-resize-disabled os-host-scrollbar-horizontal-hidden os-host-scrollbar-vertical-hidden os-host-transition ">
+        <div class="os-resize-observer-host ">
+            <div class="os-resize-observer observed " style="left: 0px; right: auto; "></div>
+        </div>
+        <div class="os-size-auto-observer " style="height: calc(100% + 1px); float: left; ">
+            <div class="os-resize-observer observed "></div>
+        </div>
+        <div class="os-content-glue " style="margin: -28px -28px 0px; height: 490px; width: 279px; "></div>
+        <div class="os-padding ">
+            <div class="os-viewport " style="right: 0px; bottom: 0px; ">
+                <div class="os-content " style="padding: 28px 28px 0px; height: auto; width: 100%; ">
+                    <div class="os-resize-observer-host ">
+                        <div class="os-resize-observer observed " style="left: 0px; right: auto; "></div>
+                    </div>
+                    <div class="os-size-auto-observer " style="height: calc(100% + 1px); float: left; ">
+                        <div class="os-resize-observer observed "></div>
+                    </div>
+                    <div class="os-content-glue " style="margin: -28px -28px 0px; height: 490px; width: 279px; "></div>
+                    <div class="os-padding ">
+                        <div class="os-viewport " style="right: 0px; bottom: 0px; ">
+                            <div class="os-content " style="padding: 28px 28px 0px; height: auto; width: 100%; ">
+                                <ul class="navigation__menu ">
+                                    <li>
+                                        <a class="text-active-blue active " href="/ "><i
+                                                class="zwicon-home text-blue"></i>Панель управления</a>
+                                    </li>
+
+
+                                    <li class="navigation__sub ">
+                                        <a href=" "><i class="zwicon-cursor-square text-cyan"></i>Интерфейс
+                                            взаимодействий</a>
+                                        <ul>
+                                            <li>
+                                                <a href="/u/report">Репорт</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden ">
+                        <div class="os-scrollbar-track ">
+                            <div class="os-scrollbar-handle " style="width: 100%; transform: translate(0px); "></div>
+                        </div>
+                    </div>
+                    <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-unusable os-scrollbar-auto-hidden ">
+                        <div class="os-scrollbar-track ">
+                            <div class="os-scrollbar-handle " style="height: 100%; transform: translate(0px); "></div>
+                        </div>
+                    </div>
+                    <div class="os-scrollbar-corner "></div>
+                </div>
+            </div>
+        </div>
+        <div class="os-scrollbar os-scrollbar-horizontal os-scrollbar-unusable os-scrollbar-auto-hidden ">
+            <div class="os-scrollbar-track ">
+                <div class="os-scrollbar-handle " style="width: 100%; transform: translate(0px); "></div>
+            </div>
+        </div>
+        <div class="os-scrollbar os-scrollbar-vertical os-scrollbar-unusable os-scrollbar-auto-hidden ">
+            <div class="os-scrollbar-track ">
+                <div class="os-scrollbar-handle " style="height: 100%; transform: translate(0px); "></div>
+            </div>
+        </div>
+        <div class="os-scrollbar-corner "></div>
+    </div>
+</aside>

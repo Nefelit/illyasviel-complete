@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta property="og:title" content="Illyasviel | Bot Commands">
+    <%- include('./part/head.ejs') %> 
+    <%- include('./part/metatag.ejs') %> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/af-2.3.5/fc-3.3.1/sp-1.1.0/datatables.min.css"/>
+ 
+</head>
+<body class="layout-body">
+    <div id="progress"></div>
+
+
+   <%- include('./part/nav.ejs') %>
+    <div id="main" class="container mt-5" style="min-height: calc(100vh - 6rem - 72px - 170px);">
+
+
+        <div class="row mb-3" id="homepage_top">
+            <div class="col-12 mt-5r mb-5r text-center">
+                <h1 class="mb-3 font">
+                    <img src="https://aspire.su/img/aw2-1.png" alt="" width="400">
+                </h1>
+                <h6 class="text-w text-muted mt-4 mb-5 font">Уникальный музыкальный бот, максимум комфорта.</h6>
+                <a href="https://aspire.su/invite" target="_blank" class="btn btn-primary mt-2 font">Добавить на
+                    сервер</a>
+                <a href="/" class="btn btn-secondary ml-md-4 mt-2 font">Домашнаяя</a>
+            </div>
+
+            <div class="col-12 mt-5">
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="financialaid col-12 mb-4"></div>
+            <div class="col-12">
+                <h3 class="mt-4 font-1" id="explore"><span data-tippy-content="Это флаг, он используется до команды, либо после команды, особо разницу не имеет. Суть флагов в том, чтоб изменить поведение команды, если так требуется.">--flag</span> <span data-tippy-content="В примерах может использоваться данный отрывок, он обозначает строку поиска, замените его (да, и не забудьте <  >) на название песни, либо ссылку на youtube, twitch, bandcamp, soundcloud, mp3, mp3 и т.д..."><запрос></span> <span data-tippy-content="В примерах может использоваться данный отрывок, он обозначает строку поиска, замените его (да, и не забудьте <  >) на название вашего плейлиста"><лист></span></h5>
+            </div>
+
+            <div class="col-12 col-md-8 mt-3">
+                <input class="form-control font" type="text" name="search"
+                    id="search" placeholder="Введите сюда название команды, или отрывок от описания">
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <select class="form-control" name="sort" id="sort">
+                    <option value="system">Главное</option>
+                    <option value="music">Музыка</option>
+                    <option value="effects">Эффекты</option>
+                    <option value="social">Личное</option>
+                    <option value="trivia">Викторина</option>
+                   
+                </select>
+            </div>
+        </div>
+                <table class="table m-b-none" data-page-size="20">
+                    <thead>
+                    <tr>
+                    <th data-toggle="true">
+                    Команда
+                    </th>
+                    <th>
+                    Категория
+                    </th>
+                    <th>
+                    Описание
+                    </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   <% client.commands.forEach(command => { %>
+                    <tr>
+                    <td data-value="1"><%= command.name %></td>
+                    <td data-value="2"><%= command.module %></td>
+                    <td data-value="3"><%- command.description || "Мы еще не успели создать описания к этой команде :( "%></td>
+                    </tr>
+                    <% }) %>
+                    </tbody>
+                    <tfoot class="hide-if-no-paging">
+                    <tr>
+                    <td colspan="2" class="text-center">
+                    <ul class="pagination"></ul>
+                    </td>
+                    </tr>
+                    </tfoot>
+                    </table>
+        </div>
+
+        <%- include('./part/footer.ejs') %>
+    </div>
+    
+    <script src="https://aspire.su//js/compile.js"></script>
+    
+    <script type="text/javascript" src="https://aspire.su//js/datatable/tables.js"></script>
+    <script>
+        $(document).ready(function () {
+            tippy('[data-tippy-content]');
+        });
+        var table = $('.table').DataTable({
+            language: {
+                    paginate: {
+                        next: '<span id="left" class="col-1 cool" alt="Previous Page" title="Назад"><i class="fal fa-angle-right"></i></span>',
+                        previous: '<span id="left" class="col-1 cool" alt="Previous Page" title="Вперед"><i class="fal fa-angle-left"></i></span>'
+                    }
+                }
+        })
+        
+        $('#search').keyup(function(){
+            table.search($(this).val()).draw();
+        })
+        $("#sort").change( function (data) {
+            table.search( $("#sort option:selected").prop('value')).draw();
+        })
+    </script>
+
+</body>
+
+</html>

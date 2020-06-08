@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./part/head.ejs') %>
+    <%- include('./part/metatag.ejs') %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <style>
+        .thumb.active {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="layout-body">
+    <div id="progress"></div>
+
+
+    <%- include('./part/nav.ejs') %>
+    <div id="main" class="container mt-5" style="min-height: calc(100vh - 6rem - 72px - 170px);">
+
+
+
+        <div class="mb-4 mt-5r row">
+            <div class="col-md-1 col-3 pr-0">
+                <a href="#">
+                    <img class="rounded-circle mr-4 big-avatar" src="<%= guild.iconURL() || '/blank.png' %>">
+                </a>
+            </div>
+            <div class="col-md-5 col-9">
+                <div>
+                    <div class="pl-md-2 center">
+                        <a href="#">
+                            <span class="h4 inline-block text-white mb-0"><%= guild.name%></span>
+                        </a>
+                        <span class="mt-2 mb-2 small" style="white-space: pre-line;">No description found</span>
+                        <span class="text-muted small">
+                            <span>
+                                В последний раз страницу редактировал System | Сервер добавлен <span class="timeAgo"
+                                    time="0"><%= moment(guild.joinedTimestamp).fromNow()%></span>
+                            </span>
+                            <br>
+                            <% if(user.id === '533681290856103966') {%> <a href="/dashboard/<%= guild.id%>"
+                                class="text-primary">Would you moderate this?</a> <% } %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 text-right mt-md-0 mt-5">
+
+                <button class="btn btn-primary mt-3" data-toggle="modal"
+                    data-target="#player">Открыть плеер</button>
+                <!--
+                <a class="btn mt-3 ml-3 btn-outline-warning text-warning" href="/premium" id="bumptext">Вы должны быть
+                    премиум</a>-->
+            </div>
+        </div>
+
+        <div class="row mt-6r">
+            <h2 class="col-md-12 font-1">Основное</h2>
+            <div class="col-12 mb-2r"></div>
+            <!-- Левый основной блок -->
+            <div class="col-md-6 mt-4 mt-md-0">
+
+                <h4 class="font-1 pointer" data-tippy-arrow="false"
+                    data-tippy-content="Когда бот будет входить в канал, он автоматически поставит данную громкость. Хранение конфигураций - залог успеха.">
+                    Уровень звука / Звук по умолчанию</h4>
+                <input @change="this.update_volume" v-model="guild.defaultVolume" class="form-control w-100 float-right"
+                    type="number" id="volume" name="volume" placeholder="20">
+
+
+                <h4 class="font-1 pointer mt-input" data-tippy-arrow="false"
+                    data-tippy-content="Язык, на котором бот будет отвечать">
+                    Язык бота</h4>
+                <select name="language" id="language" class="form-control w-100 float-right">
+                    <option value="ru">Russian</option>
+                </select>
+
+            </div>
+            <!-- Левый основной блок конец -->
+            <!-- Правый основной блок -->
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h4 class="font-1 pointer" data-tippy-arrow="false"
+                    data-tippy-content="Данный префикс будет заменой стандартному i!">
+                    Префикс бота</h4>
+                <input v-model="guild.prefix" class="form-control w-100 float-right" type="text" id="prefix"
+                    name="prefix" placeholder="20">
+
+                <h4 class="font-1 mt-input pointer" data-tippy-arrow="false"
+                    data-tippy-content="Режим повторения, тут подсказок не нужно">Режим повторения</h4>
+                <select v-model="guild.looping" class="form-control w-100 float-right" name="repeat" id="repeat">
+                    <option value="0">Выключено</option>
+                    <option value="1">Текущий лист</option>
+                    <option value="2">Текущий трек</option>
+                </select>
+
+
+            </div>
+            <!-- Правый основной блок конец -->
+            <h2 class="col-md-12 font-1" style="margin-top: 30px;">Прочее</h2>
+            <div class="col-12 mb-2r"></div>
+            <!-- Дополнительный блок лево -->
+            <div class="col-md-6 mt-4 mt-md-0">
+
+                <h4 class="font-1 pointer" data-tippy-arrow="false"
+                    data-tippy-content="Сюда можно вставить ссылку на поток, или на стрим, бот начнет играть музыку после рестарта, или когда все пользователи покинут канал.">
+                    Радиостанция</h4>
+                <input v-model="guild.radioURI" class="form-control w-100 float-right" type="url" id="search"
+                    name="station" placeholder="Сюда нужно вставить ссылку на поток, или оставить пустым">
+
+                <h4 class="font-1 mt-input pointer" data-tippy-arrow="false">
+                    <span
+                        data-tippy-content="В этот канал бот будет уходить, как только закончит обслуживать пользователей.">Радио
+                        канал / АФК</span> <span
+                        data-tippy-content="Если вы увидели это в названии, значит бот не сможет туда войти из-за недостатка прав.">***</span>
+                </h4>
+                <select v-model="guild.radioMode" class="form-control w-100 float-right" name="channel" id="channel">
+                    <option value="0">Ничего</option>
+                    <% guild.channels.cache.filter(x => x.type === 'voice').forEach(channel => {%>
+                    <option value="<%= channel.id%>"><%=channel.name %>
+                        <%- channel.permissionsFor(client.user.id).toArray().indexOf('CONNECT') > 0 ? '' : '<span data-tippy-content="У бота нет прав входить в данный канал, поэтому не удивляйтесь тому, что он не войдет :)">***</span>'%>
+                    </option>
+                    <% }) %>
+                </select>
+
+                <select v-model="guild.radioURI" style="margin-top: 10px;" class="form-control w-100 float-right">
+                    <option value="http://air.radiorecord.ru:8101/rr_320">Radio record</option>
+                    <option value="http://eptop128server.streamr.ru:8033/eptop128">Europa Plus Top 40</option>
+                    <option value="http://emgregion.hostingradio.ru:8064/moscow.europaplus.mp3">Europa Plus Moscow
+                    </option>
+                    <option value="http://pool.anison.fm:9000/AniSonFM(320)">Anison.FM Аниме радио №1 В России</option>
+                    <option :value="guild.radioURI">Свой поток</option>
+                </select>
+            </div>
+
+
+            <!-- Дополнительный блок лево конец -->
+
+            <!-- Дополнительный блок право -->
+            <div class="col-md-6 mt-4 mt-md-0">
+                <h4 class="font-1 pointer" data-tippy-arrow="false"
+                    data-tippy-content="Сгладить задержку между следующим треком. Оставьте пустым или поставьте 0, чтоб отключить.">
+                    Задержка между песнями / в милисекундах</h4>
+                <input v-model="guild.delayTime" class="form-control w-100 float-right" type="number" id="sleeptime"
+                    name="sleeptime" placeholder="0">
+
+
+            </div>
+            <div class="col-md-12 col-12 text-right mt-md-0 mt-5">
+                <a class="btn btn-primary mt-3 pointer" @click="update"><span v-if="loadings.updating"><i
+                            class="fas fa-sync fa-spin"></i> Sending..</span><span v-else>Update</span></a>
+            </div>
+            <!-- Дополнительный блок конец -->
+            <h2 class="col-md-12 font-1" style="margin-top: 30px;">Эквалайзер / <span class="pointer"
+                    data-tippy-arrow="true"
+                    data-tippy-content="Перед тем как эквалайзер обновится, пройдет 5 секунд, эту задержку невозможно уменьшить">***</span>
+            </h2>
+            <div class="col-md-12 mt-4 mt-md-0">
+
+                <input v-model="bands[0].gain" type="range" min="0" max="100" class="form-control slider" id="1_band"
+                    style="border-radius: 4px 4px 0px 0px">
+                <input v-model="bands[1].gain" type="range" min="0" max="100" class="form-control slider" id="2_band"
+                    style="border-radius: 0px 0px 0px 0px">
+                <input v-model="bands[2].gain" type="range" min="0" max="100" class="form-control slider" id="3_band"
+                    style="border-radius: 0px 0px 0px 0px">
+                <input v-model="bands[3].gain" type="range" min="0" max="100" class="form-control slider" id="4_band"
+                    style="border-radius: 0px 0px 0px 0px">
+                <input v-model="bands[4].gain" type="range" min="0" max="100" class="form-control slider" id="5_band"
+                    style="border-radius: 0px 0px 0px 0px">
+                <input v-model="bands[5].gain" type="range" min="0" max="100" class="form-control slider" id="6_band"
+                    style="border-radius: 0px 0px 4px 4px">
+
+                <div class="h6 ml-0 ml-auto mr-auto pb-5 pt-5 row text-center vertical-children"
+                    style="max-width: 960px;" id="search_nav">
+
+                    <span v-for="band of bands" class="col-2 cool">{{band.gain}}</span>
+
+                </div>
+
+                <div class="col-md-12 col-12 text-right mt-md-0 mt-5">
+                    <a class="btn btn-primary mt-3 pointer" @click="update_bands"><span v-if="loadings.bands"><i
+                                class="fas fa-sync fa-spin"></i> Sending..</span><span v-else>Apply effect</span></a>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="financialaid col-12 mt-5r"></div>
+        </div>
+
+
+
+        <div class="row p-4 mt-6" style="background: #26212c;">
+            <div class="col-12">
+                <div class="row mb-5">
+                    <div class="col-6">
+                        <h5 class="text-white d-inline-block">Сбор аналитики</h5>
+                        <span class="ml-md-5 small">Участники: <span class="text-warning"><%= guild.memberCount %>
+                            </span></span>
+                        <span class="ml-md-5 small">Треков прослушано: <span
+                                class="text-primary"><%= stats.length %></span></span>
+                    </div>
+                    <div class="col-12 text-right">
+                        <span style="cursor: pointer;">
+                            <img src="/icons/bar_chart.svg" onclick="graph(gactive ? false : true)" id="graph1" style="height: 38px;" class="bn border-0 btn ml-3 p-1">
+                        </span>
+                       
+                </div>
+                </div>
+            </div>
+            <% if(stats[2]) {%>
+            <canvas id="myChart">
+            </canvas>
+        <% } else { %>
+            <div class="col-12 h6 mb-5 mt-5 pb-5 pt-5 text-center">
+                На вашем сервере должно быть прослушано минимум 2 трека.
+            </div>
+        <% } %>
+        </div>
+
+
+
+        <!-- Modal -->
+
+        <div class="modal fade" id="player" tabindex="-1" role="dialog" aria-labelledby="player" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <iframe src="https://aspire.su/dashboard/<%= guild.id %>/player" frameborder="0"
+                        style="width: 100%; height: 400px;"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <%- include('./part/footer.ejs') %>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://aspire.su//js/compile.js"></script>
+    <script>
+        //  history.pushState(null, null, "done");
+        moment.locale('ru')
+        let gactive = false;
+        let query = <%- JSON.stringify(stats) %>;
+        let arr = {};
+        for (row in query) {
+            if (arr[moment(query[row].createdAt).startOf('day').format()]) { arr[moment(query[row].createdAt).startOf('day').format()]++ } else arr[moment(query[row].createdAt).startOf('day').format()] = 1
+        }
+        let dates = [], values = [];
+        for (i in arr) {
+            dates.push(i)
+            values.push(arr[i])
+        }
+        delete arr;
+        let data_sets = [
+            {
+                label: 'Произведение',
+                data: values,
+                fill: false,
+                backgroundColor: '#446fff',
+                borderColor: '#446fff'
+            }
+        ]
+        function drawGraph(labels, data_sets, line) {
+            if (line == undefined) {
+                line = true;
+            }
+            if(line === true) {
+                $("#graph2").removeClass('bg-dark')
+                $("#graph1").addClass('bg-dark')
+            } else {
+                $("#graph1").removeClass('bg-dark')
+                $("#graph2").addClass('bg-dark')
+            }
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: line ? 'line' : 'bar',
+                data: {
+                    labels: labels,
+                    datasets: data_sets
+                },
+                options: {
+                    elements: {
+                        point: {
+                            radius: 0
+                        }
+                    },
+                    respsonive: true,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    legend: {
+                        display: false,
+                    },
+                    scales: {
+                        xAxes: [{
+                            type: 'time',
+                            distribution: 'linear',
+                            gridLines: {
+                                drawBorder: false,
+                                display: false,
+                            },
+                            ticks: {
+                                autoSkip: true,
+                                fontSize: 13,
+                                minRotation: 0,
+                                maxRotation: 0,
+                                source: 'auto'
+                            },
+                            time: {
+                                parser: 'MM/DD/YYYY HH:mm',
+                                isoWeekday: false,
+                                unit: 'day',
+                                unitStepSize: 1,
+                                color: "rgb(187, 182, 191)",
+                                displayFormats: {
+                                    'day': 'D MMMM'
+                                }
+                            },
+                        }],
+                        yAxes: [{
+                            display: true,
+                            gridColor: "rgb(59, 59, 59)",
+                            zeroLineWidth: 0,
+                            ticks: {
+                                beginAtZero: true,
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+        function graph(line) {
+            gactive = !gactive;
+            $("#chartw").html('<canvas id="myChart"></canvas>')
+            var data_sets = [
+                {
+                    label: 'Заказов',
+                    data: [...values],
+                    fill: false,
+                    backgroundColor: '#446fff',
+                    borderColor: '#446fff',
+                },
+
+            ];
+
+            drawGraph(dates.map(x => new Date(x)), data_sets, line);
+
+        }
+        
+
+
+
+
+        var socket = io.connect('https://aspire.su:5002');
+
+        $(document).ready(function () {
+            tippy('[data-tippy-content]');
+            graph(true)
+            $("#progress").animate({width: "70%"}, 1500, 
+                function () { 
+                    $("#progress").animate({width: "100%"}, 300, 
+                        function () { 
+                            $("#progress").animate({width: "0%"}, 0)
+                        })
+                })
+        });
+
+
+        var vue = new Vue({
+            el: '#main',
+            data: {
+                guild: <%- JSON.stringify(guild.data) %>,
+                loadings: {
+                    bands: false,
+                    updating: false
+                },
+                bands: [
+                    { band: 0, gain: 0 },
+                    { band: 1, gain: 0 },
+                    { band: 2, gain: 0 },
+                    { band: 3, gain: 0 },
+                    { band: 4, gain: 0 },
+                    { band: 5, gain: 0 }
+                ]
+            },
+            methods: {
+                update_bands() {
+                    this.loadings.bands = true;
+                    setTimeout(() => {
+                        this.loadings.bands = false;
+                    }, 6500)
+                    $.post('/dashboard/<%= guild.id %>/update/equalizer', { bands: JSON.stringify(this.bands) })
+                },
+                update_volume() {
+                    $.post('/dashboard/<%= guild.id %>/update/volume', { volume: this.guild.defaultVolume }, data => {
+                        this.loadings.updating = false;
+                    })
+                },
+                update() {
+                    this.loadings.updating = true;
+                    this.update_volume(true)
+                    $.post('/dashboard/<%= guild.id %>/update', this.guild, data => {
+                        this.loadings.updating = false;
+                    })
+                }
+            },
+            mounted() {
+                if (this.guild.radioURI == 'null') this.guild.radioURI = undefined;
+                this.premium = this.guild.premium; // манипуляции не сработают, все данные обрабатываются на сервере. Это нужно лишь для интерфейса
+                this.$delete(this.guild, 'premium')
+                this.$delete(this.guild, 'entry_id')
+            }
+        })
+    </script>
+
+</body>
+
+</html>

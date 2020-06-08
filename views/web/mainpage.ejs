@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./part/head.ejs') %> 
+    <%- include('./part/metatag.ejs') %> 
+
+</head>
+<body class="layout-body">
+    <div id="progress"></div>
+
+
+   <%- include('./part/nav.ejs') %>
+    <div id="main" class="container mt-5" style="min-height: calc(100vh - 6rem - 72px - 170px);">
+
+
+        <div class="row mb-3" id="homepage_top">
+            <div class="col-12 mt-5r mb-5r text-center">
+                <h1 class="mb-3 font">
+                    <img src="https://aspire.su/img/aw2-1.png" alt="" width="400">
+                </h1>
+                <h6 class="text-w text-muted mt-4 mb-5 font">Уникальный музыкальный бот, максимум комфорта.</h6>
+                <a href="https://aspire.su/invite" target="_blank" class="btn btn-primary mt-2 font">Добавить на
+                    сервер</a>
+                <a href="/commands/" class="btn btn-secondary ml-md-4 mt-2 font">Команды</a>
+            </div>
+
+            <div class="col-12 mt-5">
+                <hr>
+            </div>
+        </div>
+        <% if(!user) { %>
+        <div class="row">
+            <div class="financialaid col-12 mb-4"></div>
+            <div class="col-12">
+                <section class="section feature" id="feature">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="section-title">
+                                    <h2 class="font-1" style="font-weight: bold;">Преимущества бота</h2>
+                                    <p class="font-1" style="font-weight: bold;font-size: 20px">Мы знаем что музыкальных ботов очень много, и каждый бот ужасно похож на другого, но мы желаем немного отличиться.<br>Нам доверяют <code><span id="guilds">0</span></code> серверов и <code><span id="users">0</span></code> пользователей</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row bg-elipse">
+                            <div class="col-lg-4 align-self-center text-center text-lg-right">
+                                <!-- Feature Item -->
+                                <div class="feature-item">
+                                    <!-- Icon -->
+                                    <div class="icon">
+                                        <i class="tf-circle-compass"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="content font-1">
+                                        <h5>Красивый интерфейс</h5>
+                                        <p>Мы не любим загрязнять интерфейс чем попало, поэтому он максимально чистый. Ознакомьтесь с <b>флагами</b> для расширений.</p>
+                                    </div>
+                                </div>
+                                <!-- Feature Item -->
+                                <div class="feature-item">
+                                    <!-- Icon -->
+                                    <div class="icon">
+                                        <i class="tf-tools-2"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="content font-1">
+                                        <h5>Неограниченные возможности</h5>
+                                        <p>Все хорошо кастомизируется, рамок нет, исключением может стать <b>очень высокий звук</b> и <b>очень большой эффект</b></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <!-- Feature Item -->
+                                <div class="feature-item mb-0">
+                                    <!-- Icon -->
+                                    <div class="icon">
+                                        <i class="tf-chat"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="content font-1">
+                                        <h5>Полностью бесплатно</h5>
+                                        <p>Но, хотелось бы заметить, что в боте есть <b>уникальные</b> функции для еще большего улучшения качества</p>
+                                    </div>
+                                </div>
+                                <div class="app-screen">
+                                    <img class="img-fluid" style="border-radius: 10%" src="https://media.discordapp.net/attachments/689089861281644566/707976424065335316/0378b705db28f77a962bdc69d38eb782.png?size=2048"
+                                        alt="app-screen">
+                                </div>
+                                <!-- Feature Item -->
+                                <div class="feature-item">
+                                    <!-- Icon -->
+                                    <div class="icon">
+                                        <i class="tf-hourglass"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="content font-1">
+                                        <h5>24/7 стабильность обеспечена</h5>
+                                        <p>Конечно, до того как произойдет внештатная ситуация :(</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center text-lg-left align-self-center">
+                                <!-- Feature Item -->
+                                <div class="feature-item">
+                                    <!-- Icon -->
+                                    <div class="icon">
+                                        <i class="tf-mobile"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="content font-1">
+                                        <h5>Удобный интерфейс вебсайта</h5>
+                                        <p>Красиво оформленый и удобный вебсайт для взаимодействия с ботом</p>
+                                    </div>
+                                </div>
+                                <!-- Feature Item -->
+                                <div class="feature-item">
+                                    <!-- Icon -->
+                                    <div class="icon">
+                                        <i class="tf-layers"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="content font-1">
+                                        <h5>Функционал вебсайта</h5>
+                                        <p>Наш сайт функционален столько же хорошо, как и бот. Вы можете управлять плеерами, листами и сихнонизацией</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+          
+        </div>
+
+    <% } else {%>
+        <!--
+        <div class="row">
+            <div class="financialaid col-12 mb-4"></div>
+            <div class="col-12">
+                <h5 class="mt-4 font" id="explore">Начните искать пользователей</h5>
+            </div>
+
+            <div class="col-12 col-md-8 mt-3">
+                <input @input="doSearch" v-model="search" class="form-control font" type="text" name="search"
+                    id="search" placeholder="Искать пользователя по его нику / айди">
+            </div>
+            <div class="col-12 col-md-4 mt-3">
+                <select class="form-control" name="sort" id="sort">
+                    <option value="rep">По репутации</option>
+                    <option value="antirep">Антирепутация</option>
+                    <option value="comments">Количество комментариев</option>
+                </select>
+            </div>
+        </div>!-->
+        <div id="searcher" class="font-3" style="display: block;">
+            <div class="col-12 mt-5">
+                <h6>Ваши сервера</h6>
+            </div>
+
+            <div class="row bg-dark ml-0 mr-0 p-4 mt-4">
+                <div class="col-md-6">
+                    <div class="p-3 border-seperate">
+                        <h5>Обычные сервера</h5>
+                        <small class="d-inline-block">Вы можете редактировать настройки на серверах ниже, либо добавить новый сервер.</small>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-3">
+                        <h5>Премиум сервера <small class="text-muted">не доступны</small></h5>
+                        <small class="d-inline-block">У нас нет премиума, и наверное, не скоро будут. Можете не обращать на эту панель внимание.</small>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <small class="d-inline-block pl-3">И помните, чтоб бот играл музыку, ему нужны права ВХОДИТЬ В КАНАЛЫ.</small>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 row" id="users_wrapper">
+            <% guilds.forEach(guild => { %>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="server-card-wrapper">
+                    <div class="card card-big">
+                        <div class="row">
+                            <div class="col-3 pr-0 card-img" style="text-align: center;">
+                                <a href="/dashboard/<%=guild.id%>">
+                                    <img class="rounded-circle" src="<%= guild.iconURL() || './blank.png'%>" alt="<%= guild.name%>">
+                                </a>
+                            </div>
+                            <% 
+                            var color = '#41ff85'
+                            var text=[]
+                            var cant = false
+                            var permissions = guild.me.permissions.toArray();
+                            if (permissions.indexOf('USE_EXTERNAL_EMOJIS') < 0) {
+                                cant = true;
+                                color = 'orange'
+                                text.push ('использовать стороние эмодзи')
+                            }
+                            if (permissions.indexOf('ADD_REACTIONS') < 0) {
+                                cant = true;
+                                color = 'orange'
+                                text.push ('ставить реакции')
+                            }
+
+                            if (permissions.indexOf('CONNECT') < 0) {
+                                cant = true;
+                                color = '#ff4848'
+                                text.push ('подключаться к каналам')
+                            }
+                            if (permissions.indexOf('SPEAK') < 0) {
+                                cant = true;
+                                color = '#ff4848'
+                                text.push ('говорить в каналах')
+                            }
+
+                            if (permissions.indexOf('EMBED_LINKS') < 0) {
+                                cant = true;
+                                color = '#ff4848'
+                                text.push ('слать графические сообщения')
+                            }
+
+                            if (permissions.indexOf('SEND_MESSAGES') < 0) {
+                                cant = true;
+                                color = '#ff4848'
+                                text.push ('слать сообщения [полностью]')
+                            }
+                            console.log(text, color, cant)
+                            
+                            if(!cant) text = `Все отлично, бот должен работать.`;
+                            if(cant) text = `Бот не может: ${text.join(", ")}`;
+                            console.log(text)
+                            %>
+                            <div class="col-8 ml-3 card-title-parent">
+                                <div class="center">
+                                    <a href="/dashboard/<%=guild.id%>">
+                                        <span class="m-0 d-block h4 font-4"><%= guild.name%></span>
+                                    </a>
+                                    <a class="join text-muted <%=color%>" href="/dashboard/<%= guild.id%>" style="color: <%= color%>!important">
+                                        <%= text %>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+            <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+                <div class="server-card-wrapper">
+                    <div class="card card-big">
+                        <div class="row">
+                            <div class="col-3 pr-0 card-img" style="text-align: center;">
+                                <a href="/invite">
+                                    <img class="rounded-circle" src="https://media.discordapp.net/attachments/674257349569019914/709870013611507752/signs_2.png?width=462&height=462" alt="add guild">
+                                </a>
+                            </div>
+                            <div class="col-8 ml-3 card-title-parent">
+                                <div class="center">
+                                    <a href="/invite">
+                                        <span class="m-0 d-block h4">Добавить</span>
+                                    </a>
+                                    <a class="join text-muted" href="/invite">
+                                        Пригласить на сервер
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+
+        <%- include('./part/footer.ejs') %>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://aspire.su//js/site.js"></script>
+    <script src="https://aspire.su//js/compile.js"></script>
+    
+
+    <script>
+        var socket = io.connect('https://aspire.su:5002');
+
+        var users = $("#users")
+        var guilds = $("#guilds")
+        if (users && guilds) {
+            socket.on('stats', stats => {
+                users.html(stats.users)
+                guilds.html(stats.guilds)
+            })
+    }
+    </script>
+
+</body>
+
+</html>

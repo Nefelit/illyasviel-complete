@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./web/part/head.ejs') %>
+    <%- include('./web/part/metatag.ejs') %>
+
+</head>
+
+<body class="layout-body">
+    <div id="progress"></div>
+
+
+    <%- include('./web/part/nav.ejs') %>
+    <div id="main" class="container mt-5" style="min-height: calc(100vh - 6rem - 72px - 170px);">
+
+
+
+
+
+        <div class="pt-5 row text-center">
+            <div class="col-12">
+
+                <h4 class="font-1">Большое вам спасибо</h4>
+
+                <h2 class="text-white text-center mt-3 mb-3 font-1">Бот уже на вашем сервере!</h2>
+
+                <p class="small font">Кнопки быстрого действия</p>
+
+                <a href="/dashboard/<%=guild.id%>" id="godashboard" class="btn btn-primary mt-2 font">
+                    <span><%=guild.name%></span>
+                </a>
+
+                <a href="/commands" class="btn btn-secondary ml-md-3 mt-2 font">
+                    <span>Функционал</span>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="row mt-5r bg-dark p-4 font-1" style="font-size: 1.3em;">
+            <div class="col-12 mt-4 mb-5">
+                <h5 class="text-white text-center">Кратко обьясню, что представляет мой бот</h5>
+            </div>
+            <div class="col-12 col-md-3 mb-5 border-seperate">
+                <div class="p-3"><i class="fas fa-long-arrow-alt-up h4 pl-1 d-block text-light-orange"></i>
+                    <h5>Качество</h5> <small class="lh-1 d-inline-block">Теперь вы можете запускать музыку с высоким
+                        качеством и без лагов, так же храните свою музыку в плейлистах, лайкайте треки и другое.
+                        Доступно радио и партнер-режим.</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-5 border-seperate">
+                <div class="p-3"><i class="fas fa-user-astronaut h4 pl-1 d-block text-white-50"></i>
+                    <h5>Контроль</h5> <small class="lh-1 d-inline-block">Использовали мобильные плееры, где есть
+                        настройка глубин и т.п? У нас это тоже есть! Nightcore, bassbosted, караоке, эквалайзер, и все
+                        настраивается!</small>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-5 border-seperate">
+                <div class="p-3"><i class="fas fa-bolt h4 pl-1 d-block text-warning"></i>
+                    <h5>Отзывчивая поддержка</h5> <small class="lh-1 d-inline-block">Если вы поставите хорошо
+                        сформулированный вопрос или форму ошибки, мы легко вам поможем, а так же будем говорить на таком
+                        же приятном тоне.
+                    </small>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-5">
+                <div class="p-3"><i class="fas fa-dove h4 pl-1 d-block text-white"></i>
+                    <h5>Есть идеи?</h5> <small class="lh-1 d-inline-block">Мы хотим создать не что-то для галочки, а
+                        улучшить комфортность нашего бота! Мы только рады, если вы предоставите нам ссылки на
+                        качественные, бесперебойные и уникальные радиостанции (или другин идеи). Другие пользователи
+                        узнают о вас!</small>
+                </div>
+            </div>
+            <div class="col-12 text-center"><a href="#"
+                    class="btn btn-primary mt-2 ml-md-3 waves-effect waves-light" id="share">Порекомендовать</a><a href="#"
+                    class="btn btn-primary mt-2 ml-md-3 waves-effect waves-light">Комьюнити</a></div>
+            <div class="col-12 mt-3 mb-4 text-center"><span class="text-muted small">Доната нет, все
+                    бесплатно.<br>Данная страница открывается автоматически как приветствие, на нее нельзя выйти
+                    после.</span>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <%- include('./web/part/footer.ejs') %>
+    </div>
+
+
+    <script src="https://bfintal.github.io/Counter-Up/jquery.counterup.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://aspire.su//js/site.js"></script>
+    <script src="https://aspire.su//js/compile.js"></script>
+    <script>
+        history.pushState(null, null, "done");
+
+
+
+        $(document).ready(function () {
+            tippy('#godashboard', {
+                content: "Перейти к настройке сервера",
+            });
+            tippy('#share', {
+                content: "Мы сгенерируем страницу-визитку для вашего друга, и покажем что мы умеем!",
+            });
+        });
+    </script>
+
+</body>
+
+</html>
