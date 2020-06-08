@@ -33,6 +33,25 @@ JVM:            11.0.2
 Lavaplayer      1.3.49
 ```
 
+![img](https://media.discordapp.net/attachments/689087727131426892/719591796815953930/2020-06-08_23-39.png)
+
+```js
+server {
+
+    server_name aspire.su; # замените на свой вебсайт
+
+    location / {
+        proxy_pass http://localhost:3333;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+     }
+}
+```
+Используйте `certbot --ngnix`, затем обновите название домена в боте
+
 Селфхостинг на хероку не проверялся, требуется активный лавалинк, хотя бы 1 штука для запуска.
 Мне лень оставлять дамп и скелет базы данных.
 
