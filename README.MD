@@ -12,6 +12,64 @@
 git clone https://github.com/Nefelit/illyasviel-complete.git
 ```
 
+# PREVIEW
+
+> Simle 
+
+![NP](https://nefelit.design/1a72674575d9e713.png)
+
+> Flags and reactions
+
+![NP FLAGS AND REACTIONS](https://nefelit.design/a498c7d1803441b3.png)
+
+
+> Details | User music library | User music history
+
+![DETAILS MUSIC LIBRARY](https://nefelit.design/66ebee1ad29d412a.png)
+![HISTORY](https://nefelit.design/8765dd4818099735.png)
+
+> Clear Queue starting at 0
+
+![QUEUE](https://nefelit.design/406ec09642dd8c50.png)
+
+> Flags usage | SHUFFLE
+
+![FLAGS](https://nefelit.design/9664ade4e8a67445.png)
+
+> Sleep timer
+
+![SLEEP TIMER](https://nefelit.design/9b9a914407911690.png)
+
+> Handle all fails
+
+![FUCK](https://nefelit.design/3416ca05b2ee9315.png)
+
+> Search command (UP TO 30 songs)
+
+![SEARCH](https://nefelit.design/2e88bb3a6404d0b9.png)
+
+> Load all songs by author name or by tag or part of name!
+
+![bruh](https://nefelit.design/4e85e82bd6584838.png)
+![bruh](https://nefelit.design/8b91c99a036b1ad6.png)
+
+See all commands at https://aspire.su/commands
+
+
+# WEBSITE
+
+> SOCKET system | Tracto design
+
+![web](https://nefelit.design/40d4ceeb4e3a0b12.png)
+
+> Videos with website
+
+https://saphire.is-inside.me/mGKbbXDT.mp4
+
+https://saphire.is-inside.me/QOScXTo6.mp4
+
+# ISTALL 
+
 Enmap BetterSqlite3 зависимости 
 
 ```
