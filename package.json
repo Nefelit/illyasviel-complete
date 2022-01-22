@@ -30,7 +30,7 @@
         "morgan": "^1.10.0",
         "ms": "^2.1.2",
         "mysql2": "^2.1.0",
-        "node-fetch": "^2.6.0",
+        "node-fetch": "^3.1.1",
         "ora": "^4.0.3",
         "parse-duration": "^0.1.2",
         "request": "^2.88.0",
