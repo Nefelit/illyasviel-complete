@@ -24,7 +24,7 @@
         "ffmpeg-static": "^3.0.0",
         "get-youtube-id": "^1.0.1",
         "http-errors": "^1.7.3",
-        "moment": "^2.24.0",
+        "moment": "^2.29.4",
         "moment-duration-format": "^2.3.2",
         "moment-timezone": "^0.5.27",
         "morgan": "^1.10.0",
