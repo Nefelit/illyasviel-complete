@@ -18,7 +18,7 @@
         "ejs": "^3.0.1",
         "enmap": "^5.2.4",
         "erlpack": "discordapp/erlpack",
-        "express": "^4.17.1",
+        "express": "^4.17.3",
         "express-session": "^1.17.0",
         "ffmpeg": "^0.0.4",
         "ffmpeg-static": "^3.0.0",
